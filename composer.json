@@ -1,5 +1,10 @@
 {
 	"require": {
+		"php": "^7.1",
+		"ext-gmp": "*",
 		"timmyrs/phpcraft": "dev-master"
+	},
+	"require-dev": {
+		"ext-gd": "*"
 	}
 }
