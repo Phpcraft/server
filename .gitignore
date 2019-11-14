@@ -1,0 +1,7 @@
+.idea/
+config/
+vendor/
+*.bin
+*.hex
+composer.lock
+*sketch.php
