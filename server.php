@@ -33,12 +33,6 @@ echo "Loading plugins...\n";
 PluginManager::loadPlugins();
 echo "Loaded ".count(PluginManager::$loaded_plugins)." plugin(s).\n";
 $server->ui->render();
-$server->persist_configs = true;
-$server->config_reloaded_function = function() use (&$server)
-{
-	$server->setGroups($server->config["groups"]);
-};
-($server->config_reloaded_function)();
 $next_tick = microtime(true) + 0.05;
 do
 {
