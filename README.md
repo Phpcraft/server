@@ -1,6 +1,6 @@
 # Phpcraft Server
 
-A simple Minecraft: Java Edition Server based on Phpcraft.
+A Minecraft: Java Edition Server based on Phpcraft.
 
 ## Prerequisites
 
