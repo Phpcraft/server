@@ -8,11 +8,6 @@ use pac\
 {Chromium, Page};
 use Phpcraft\
 {ClientConnection, Command\CommandSender, Event\ServerJoinEvent, Event\ServerLeaveEvent, Event\ServerTickEvent, Item, NBT\CompoundTag, NBT\IntTag, NBT\StringTag, Packet\MapData\MapDataPacket, Packet\SetSlotPacket, Plugin, PluginManager, Slot};
-if(PluginManager::$command_prefix != "/")
-{
-	$this->unregister();
-	return;
-}
 if(!class_exists("pac\\Chromium"))
 {
 	echo "[Chromium] If you want to browse the internet on a map, run `composer require --dev hell-sh/pac:dev-master`. No guarantees that it will go well.\n";

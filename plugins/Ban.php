@@ -8,11 +8,6 @@
  */
 use Phpcraft\
 {ClientConfiguration, ClientConnection, Command\CommandSender, Command\GreedyString, Event\Event, Event\ServerJoinEvent, Plugin, PluginManager};
-if(PluginManager::$command_prefix != "/")
-{
-	$this->unregister();
-	return;
-}
 $this->on(function(ServerJoinEvent $e)
 {
 	$ban_reason = $e->client->config->get("ban");

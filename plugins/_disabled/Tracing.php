@@ -4,11 +4,6 @@
  */
 use Phpcraft\
 {ClientConnection, Entity\EntityType, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\SpawnMobPacket, Plugin, PluginManager};
-if(PluginManager::$command_prefix != "/")
-{
-	$this->unregister();
-	return;
-}
 $this->on(function(ServerJoinEvent $event)
 {
 	if(@$event->client->received_imitated_world)
