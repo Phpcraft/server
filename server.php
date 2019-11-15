@@ -4,7 +4,7 @@ if(empty($argv))
 {
 	die("This is for PHP-CLI. Connect to your server via SSH and use `php server.php`.\n");
 }
-require "vendor/autoload.php";
+require __DIR__."/vendor/autoload.php";
 use Phpcraft\
 {Command\Command, Event\ServerConsoleEvent, Event\ServerTickEvent, IntegratedServer, PluginManager};
 $server = IntegratedServer::cliStart("Phpcraft Server", [
@@ -69,5 +69,5 @@ do
 	}
 }
 while($server->isOpen());
-$ui->add("Server is not listening on any ports and has no clients, so it's shutting down.");
-$ui->render();
+$server->ui->add("Server is not listening on any ports and has no clients, so it's shutting down.");
+$server->ui->render();
