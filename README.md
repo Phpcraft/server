@@ -32,6 +32,19 @@ php vendor/timmyrs/phpcraft/selfcheck.php
 
 If any dependencies are missing, follow the instructions, and then run the self check again.
 
+## Updating
+
+To update the Phpcraft Server and its dependencies:
+
+``` Bash
+git stash
+git pull
+composer update --no-dev --no-suggest --ignore-platform-reqs
+git stash pop
+``` 
+
+If you have made local changes, they will be saved and re-applied after the update.
+
 ### That's it!
 
 Now that you've got the Phpcraft Server all set up, you can start it:
