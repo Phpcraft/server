@@ -2,7 +2,7 @@
 	"require": {
 		"php": "^7.1",
 		"ext-gmp": "*",
-		"timmyrs/phpcraft": "dev-master"
+		"craft/core": "*"
 	},
 	"require-dev": {
 		"ext-gd": "*"
