@@ -27,7 +27,7 @@ composer install --no-dev --no-suggest --ignore-platform-reqs
 Next, we'll run a self check:
 
 ```Bash
-php vendor/timmyrs/phpcraft/selfcheck.php
+php vendor/craft/core/selfcheck.php
 ```
 
 If any dependencies are missing, follow the instructions, and then run the self check again.
