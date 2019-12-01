@@ -36,7 +36,7 @@ echo "Loaded ".count(PluginManager::$loaded_plugins)." plugin(s).\n";
 $server->ui->render();
 pas::on("stdin_line", function(string $msg) use (&$server)
 {
-	if(!Command::handleMessage($server, $msg) && !PluginManager::fire(new ServerConsoleEvent($server, $msg)))
+	if($msg && !Command::handleMessage($server, $msg) && !PluginManager::fire(new ServerConsoleEvent($server, $msg)))
 	{
 		$server->broadcast([
 			"translate" => "chat.type.announcement",
