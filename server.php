@@ -51,10 +51,6 @@ pas::on("stdin_line", function(string $msg) use (&$server)
 		]);
 	}
 });
-$server->open_condition->add(function(bool $lagging) use (&$server)
-{
-	PluginManager::fire(new ServerTickEvent($server, $lagging));
-}, 0.05);
 pas::loop();
 $server->ui->add("Server is not listening on any ports and has no clients, so it's shutting down.");
 $server->ui->render();
