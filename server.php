@@ -5,9 +5,9 @@ if(empty($argv))
 	die("This is for PHP-CLI. Connect to your server via SSH and use `php server.php`.\n");
 }
 require __DIR__."/vendor/autoload.php";
-use Phpcraft\
-{Command\Command, Event\ServerConsoleEvent, Event\ServerTickEvent, IntegratedServer, PluginManager};
 use pas\pas;
+use Phpcraft\
+{Command\Command, Event\ServerConsoleEvent, IntegratedServer, PluginManager};
 $server = IntegratedServer::cliStart("Phpcraft Server", [
 	"groups" => [
 		"default" => [

@@ -36,7 +36,7 @@ If any dependencies are missing, follow the instructions, and then run the self 
 
 To update the Phpcraft Server and its dependencies:
 
-``` Bash
+```Bash
 git stash
 git pull
 composer update --no-dev --no-suggest --ignore-platform-reqs

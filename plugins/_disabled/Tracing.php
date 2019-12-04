@@ -3,7 +3,7 @@
  * @var Plugin $this
  */
 use Phpcraft\
-{ClientConnection, Entity\EntityType, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\SpawnMobPacket, Plugin, PluginManager};
+{ClientConnection, Entity\EntityType, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\SpawnMobPacket, Plugin};
 $this->on(function(ServerJoinEvent $event)
 {
 	if(@$event->client->received_imitated_world)
@@ -28,8 +28,11 @@ $this->on(function(ServerJoinEvent $event)
 			 assert($con instanceof ClientConnection);
 			 if(@$con->lock_on)
 			 {
-				 list($yaw, $pitch) = $con->getEyePosition()
-										  ->lookAt($con->lock_on);
+				 [
+					 $yaw,
+					 $pitch
+				 ] = $con->getEyePosition()
+						 ->lookAt($con->lock_on);
 				 $con->rotate($yaw, $pitch);
 			 }
 			 else if(@$con->shulker_eid !== null)

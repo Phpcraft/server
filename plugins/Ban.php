@@ -7,7 +7,7 @@
  * @var Plugin $this
  */
 use Phpcraft\
-{ClientConfiguration, ClientConnection, Command\CommandSender, Command\GreedyString, Event\Event, Event\ServerJoinEvent, Plugin, PluginManager};
+{ClientConfiguration, ClientConnection, Command\CommandSender, Command\GreedyString, Event\Event, Event\ServerJoinEvent, Plugin};
 $this->on(function(ServerJoinEvent $e)
 {
 	$ban_reason = $e->client->config->get("ban");
