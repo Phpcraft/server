@@ -7,7 +7,7 @@ if(empty($argv))
 require __DIR__."/vendor/autoload.php";
 use pas\pas;
 use Phpcraft\
-{Command\Command, Event\ServerConsoleEvent, IntegratedServer, PluginManager};
+{ChatComponent, Command\Command, Event\ServerConsoleEvent, IntegratedServer, PluginManager};
 $server = IntegratedServer::cliStart("Phpcraft Server", [
 	"groups" => [
 		"default" => [
@@ -38,17 +38,10 @@ pas::on("stdin_line", function(string $msg) use (&$server)
 {
 	if($msg && !Command::handleMessage($server, $msg) && !PluginManager::fire(new ServerConsoleEvent($server, $msg)))
 	{
-		$server->broadcast([
-			"translate" => "chat.type.announcement",
-			"with" => [
-				[
-					"text" => "Server"
-				],
-				[
-					"text" => $msg
-				]
-			]
-		]);
+		$server->broadcast(ChatComponent::translate("chat.type.announcement", [
+			"Server",
+			$msg
+		]));
 	}
 });
 pas::loop();

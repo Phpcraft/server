@@ -6,7 +6,7 @@
  */
 use hellsh\UUID;
 use Phpcraft\
-{Event\Event, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\BossBar\AddBossBarPacket, Packet\BossBar\UpdateBossBarHealthPacket, Packet\BossBar\UpdateBossBarTitlePacket, Plugin};
+{ChatComponent, Event\Event, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\BossBar\AddBossBarPacket, Packet\BossBar\UpdateBossBarHealthPacket, Packet\BossBar\UpdateBossBarTitlePacket, Plugin};
 /** @noinspection PhpUndefinedFieldInspection */
 $this->i = 0;
 $this->on(function(ServerJoinEvent $event)
@@ -16,7 +16,7 @@ $this->on(function(ServerJoinEvent $event)
 		return;
 	}
 	$packet = new AddBossBarPacket(UUID::v5("BossBar.php"));
-	$packet->title = ["text" => "Hello, world!"];
+	$packet->title = ChatComponent::text("Hello, world!");
 	$packet->send($event->client);
 }, Event::PRIORITY_LOWEST);
 $this->on(function(ServerTickEvent $event)

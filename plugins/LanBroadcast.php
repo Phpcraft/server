@@ -5,13 +5,14 @@
  * @var Plugin $this
  */
 use Phpcraft\
-{Event\ServerTickEvent, LanInterface, Phpcraft, Plugin};
+{ChatComponent, Event\ServerTickEvent, LanInterface, Plugin};
 $this->next_announce = 0;
 $this->on(function(ServerTickEvent $e)
 {
 	if($e->server->isListening() && --$this->next_announce <= 0)
 	{
 		$this->next_announce = 30;
-		LanInterface::announce(explode("\n", Phpcraft::chatToText($e->server->getMotd(), Phpcraft::FORMAT_SILCROW))[0], $e->server->getPorts()[0]);
+		LanInterface::announce(explode("\n", $e->server->getMotd()
+													   ->toString(ChatComponent::FORMAT_SILCROW))[0], $e->server->getPorts()[0]);
 	}
 });

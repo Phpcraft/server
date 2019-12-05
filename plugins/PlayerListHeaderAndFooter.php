@@ -3,7 +3,7 @@
  * @var Plugin $this
  */
 use Phpcraft\
-{Event\Event, Event\ServerJoinEvent, Plugin};
+{ChatComponent, Event\Event, Event\ServerJoinEvent, Plugin};
 $this->on(function(ServerJoinEvent $event)
 {
 	if($event->cancelled)
@@ -11,7 +11,7 @@ $this->on(function(ServerJoinEvent $event)
 		return;
 	}
 	$event->client->startPacket("player_list_header_and_footer");
-	$event->client->writeString('{"text":"Phpcraft Server"}');
-	$event->client->writeString('{"text":"phpcraft.de"}');
+	$event->client->writeChat(ChatComponent::text("Phpcraft Server"));
+	$event->client->writeChat(ChatComponent::text("phpcraft.de"));
 	$event->client->send();
 }, Event::PRIORITY_LOW);

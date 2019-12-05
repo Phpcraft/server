@@ -7,7 +7,7 @@
  * @var Plugin $this
  */
 use Phpcraft\
-{ClientConfiguration, ClientConnection, Command\CommandSender, Command\GreedyString, Event\Event, Event\ServerJoinEvent, Plugin};
+{ChatComponent, ClientConfiguration, ClientConnection, Command\CommandSender, Command\GreedyString, Event\Event, Event\ServerJoinEvent, Plugin};
 $this->on(function(ServerJoinEvent $e)
 {
 	$ban_reason = $e->client->config->get("ban");
@@ -28,10 +28,8 @@ $this->on(function(ServerJoinEvent $e)
 		 }
 		 if($victim->hasPermission("unbannable"))
 		 {
-			 $sender->sendMessage([
-				 "text" => "You can't ban the unbannable ".$victim->getName().". I can't believe you even tried.",
-				 "color" => "red"
-			 ]);
+			 $sender->sendMessage(ChatComponent::text("You can't ban the unbannable ".$victim->getName().". I can't believe you even tried.")
+											   ->red());
 			 return;
 		 }
 		 $victim->set("ban", $reason ? $reason->value : true);
@@ -40,10 +38,8 @@ $this->on(function(ServerJoinEvent $e)
 			 $victim->getPlayer()
 					->disconnect("You have been banned from this server".($reason ? ": ".$reason->value : "."));
 		 }
-		 $sender->sendAdminBroadcast([
-			 "text" => $victim->getName()." has been banned.".($reason === null ? " And you didn't even need a reason, apparently." : ""),
-			 "color" => "yellow"
-		 ], "use /ban");
+		 $sender->sendAdminBroadcast(ChatComponent::text($victim->getName()." has been banned.".($reason === null ? " And you didn't even need a reason, apparently." : ""))
+												  ->yellow(), "use /ban");
 	 }, "use /ban")
 	 ->registerCommand([
 		 "unban",
@@ -53,16 +49,12 @@ $this->on(function(ServerJoinEvent $e)
 		 if($victim->has("ban"))
 		 {
 			 $victim->unset("ban");
-			 $sender->sendAdminBroadcast([
-				 "text" => $victim->getName()." has been unbanned.",
-				 "color" => "green"
-			 ], "use /unban");
+			 $sender->sendAdminBroadcast(ChatComponent::text($victim->getName()." has been unbanned.")
+													  ->green(), "use /unban");
 		 }
 		 else
 		 {
-			 $sender->sendMessage([
-				 "text" => $victim->getName()." is not banned. Better safe than sorry?",
-				 "color" => "red"
-			 ]);
+			 $sender->sendMessage(ChatComponent::text($victim->getName()." is not banned. Better safe than sorry?")
+											   ->yellow());
 		 }
 	 }, "use /unban");
