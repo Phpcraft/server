@@ -5,6 +5,7 @@
 		"craft/core": "^0.4"
 	},
 	"require-dev": {
-		"ext-gd": "*"
+		"ext-gd": "*",
+		"hell-sh/pac": "dev-master"
 	}
 }

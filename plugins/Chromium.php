@@ -27,7 +27,7 @@ if(!$c->isAvailable())
 	$c->download();
 	echo " Done.\n";
 }
-$i = $c->start(false);
+$i = $c->start(true);
 //$i->logging = true;
 $this->registerCommand("scale", function(ClientConnection $con, float $scale)
 {
@@ -89,7 +89,6 @@ $this->on(function(ServerTickEvent $event) use (&$i)
 		echo "[Chromium] Chromium process is no longer running.\n";
 		$this->unregister();
 	}
-	$i->handle();
 	foreach($event->server->getPlayers() as $client)
 	{
 		if(@$client->render_chromium_tab !== true)
@@ -123,7 +122,6 @@ $this->on(function(ServerTickEvent $event) use (&$i)
 			$client->render_chromium_tab = true;
 		});
 	}
-	$i->handle();
 });
 $this->registerCommand("close_chromium", function(/** @noinspection PhpUnusedParameterInspection */ CommandSender &$sender) use (&$i)
 {
