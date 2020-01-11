@@ -4,8 +4,9 @@
  *
  * @var Plugin $this
  */
+use hotswapp\Event;
 use Phpcraft\
-{Event\Event, Event\ServerJoinEvent, Item, NBT\CompoundTag, NBT\IntTag, NBT\StringTag, Packet\MapData\MapDataPacket, Packet\SetSlotPacket, Phpcraft, Plugin, Slot};
+{Event\ServerJoinEvent, Item, NBT\CompoundTag, NBT\IntTag, NBT\StringTag, Packet\MapData\MapDataPacket, Packet\SetSlotPacket, Phpcraft, Plugin, Slot};
 $WorldImitatorActive = false;
 if(!extension_loaded("gd"))
 {

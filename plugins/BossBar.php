@@ -5,8 +5,9 @@
  * @var Plugin $this
  */
 use hellsh\UUID;
+use hotswapp\Event;
 use Phpcraft\
-{ChatComponent, Event\Event, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\BossBar\AddBossBarPacket, Packet\BossBar\UpdateBossBarHealthPacket, Packet\BossBar\UpdateBossBarTitlePacket, Plugin};
+{ChatComponent, Event\ServerJoinEvent, Event\ServerTickEvent, Packet\BossBar\AddBossBarPacket, Packet\BossBar\UpdateBossBarHealthPacket, Packet\BossBar\UpdateBossBarTitlePacket, Plugin};
 /** @noinspection PhpUndefinedFieldInspection */
 $this->i = 0;
 $this->on(function(ServerJoinEvent $event)

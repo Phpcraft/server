@@ -2,8 +2,9 @@
 /**
  * @var Plugin $this
  */
+use hotswapp\Event;
 use Phpcraft\
-{ChatComponent, Event\Event, Event\ServerJoinEvent, Plugin};
+{ChatComponent, Event\ServerJoinEvent, Plugin};
 $this->on(function(ServerJoinEvent $event)
 {
 	if($event->cancelled)

@@ -4,8 +4,9 @@
  *
  * @var Plugin $this
  */
+use hotswapp\Event;
 use Phpcraft\
-{Connection, Event\Event, Event\ServerJoinEvent, Packet\ClientboundPacketId, Plugin, Versions};
+{Connection, Event\ServerJoinEvent, Packet\ClientboundPacketId, Plugin, Versions};
 $this->on(function(ServerJoinEvent $event)
 {
 	if($event->cancelled || !file_exists("world.bin"))

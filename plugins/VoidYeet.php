@@ -3,10 +3,9 @@
  * Yeets clients up if they enter the void down below.
  *
  * @var Plugin $this
-*/
+ */
 use Phpcraft\
-{EffectType, Event\ServerMovementEvent, Packet\EntityEffectPacket, Packet\RemoveEntityEffectPacket, Plugin};
-use pas\pas;
+{Event\ServerMovementEvent, Plugin};
 $this->on(function(ServerMovementEvent $event)
 {
 	if($event->client->pos->y < -16)

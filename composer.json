@@ -2,10 +2,10 @@
 	"require": {
 		"php": "^7.1",
 		"ext-gmp": "*",
-		"craft/core": "^0.4"
+		"craft/core": "^0.5"
 	},
 	"require-dev": {
 		"ext-gd": "*",
-		"hell-sh/pac": "dev-master"
+		"hell-sh/chromium": "dev-master"
 	}
 }

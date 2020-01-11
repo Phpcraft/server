@@ -27,7 +27,7 @@ if(!$c->isAvailable())
 	$c->download();
 	echo " Done.\n";
 }
-$i = $c->start(true);
+$i = $c->start(false);
 //$i->logging = true;
 $this->registerCommand("scale", function(ClientConnection $con, float $scale)
 {
