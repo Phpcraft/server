@@ -2,7 +2,7 @@
 	"require": {
 		"php": "^7.1",
 		"ext-gmp": "*",
-		"craft/core": "^0.5"
+		"craft/core": "^0.5.7"
 	},
 	"require-dev": {
 		"ext-gd": "*",
