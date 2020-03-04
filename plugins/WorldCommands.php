@@ -8,7 +8,12 @@ $this->registerCommand("world", function(ClientConnection $con, string $world = 
 {
 	if($world)
 	{
-		if(array_key_exists($world, $con->getServer()->worlds))
+		if($con->world == $world)
+		{
+			$con->sendMessage(ChatComponent::text("You're already in that world.")
+										   ->yellow());
+		}
+		else if(array_key_exists($world, $con->getServer()->worlds))
 		{
 			$con->world = $world;
 			$con->chunks = [];
