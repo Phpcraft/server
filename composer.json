@@ -5,7 +5,7 @@
 		"craft/core": "^0.5.7"
 	},
 	"require-dev": {
-		"ext-gd": "*",
-		"hell-sh/chromium": "dev-master"
+		"hell-sh/chromium": "^0.2",
+		"ext-gd": "*"
 	}
 }
