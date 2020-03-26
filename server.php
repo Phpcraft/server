@@ -14,6 +14,7 @@ $server = IntegratedServer::cliStart("Phpcraft Server", [
 			"allow" => [
 				"use /me",
 				"use /gamemode",
+				"use /noclipcreative",
 				"use /metadata",
 				"change the world"
 			]
