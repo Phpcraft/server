@@ -2,7 +2,7 @@
 	"require": {
 		"php": "^7.1",
 		"ext-gmp": "*",
-		"craft/core": "^0.5.7"
+		"craft/core": "^0.5.16"
 	},
 	"require-dev": {
 		"hell-sh/chromium": "^0.2",
